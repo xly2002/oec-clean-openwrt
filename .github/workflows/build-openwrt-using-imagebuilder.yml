@@ -450,11 +450,15 @@ jobs:
             ### OpenWrt Image Information
             - Default IP: `192.168.1.1`
             - Default username: `root`
-            - Default password: `password`
-            - Default WIFI name: `OpenWrt`
-            - Default WIFI password: `none`
-            ### Install to EMMC
-            - Login to OpenWrt → `System` → `Amlogic Service` → `Install OpenWrt`
-            ### Applicable Platform
-            - 🐧 `arm64`
-            - 🐋 Docker image: https://hub.docker.com/u/ophub
+            - Default password: *(none)* — set one after first login
+            - Package set: official OpenWrt 25.12.6 `armsr/armv8` Generic defaults only
+              (no third-party apps, no luci-app-amlogic, no wpad/hostapd)
+            ### Flashing
+            - Flash the extracted `.img` with **RKDevTool**
+              (Loader: `MiniLoaderAll.bin` or `rk356x-MiniLoaderAll.bin`)
+            - This build has **no `luci-app-amlogic`**: no in-web "install to eMMC",
+              no online update, no automatic rootfs expansion
+            - Expand manually after first boot: `fdisk -l /dev/mmcblk0` then
+              `resize2fs /dev/mmcblk0p1` (use the real partition number)
+            ### Platform
+            - `arm64` — official `armsr/armv8` generic rootfs + ophub kernel / u-boot / dtb
