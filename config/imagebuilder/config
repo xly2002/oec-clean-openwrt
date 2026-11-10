@@ -1,0 +1,53 @@
+#======================================================================================
+#
+# ophub/amlogic-s9xxx-openwrt -- ImageBuilder 自定义包配置【干净版】
+#
+# 重要:本文件只有在 imagebuilder.sh 显式传入 PACKAGES="${my_packages}" 时才起作用。
+#       干净版已改为不传 PACKAGES,改用官方 profile 默认包集,因此下面全部不启用。
+#       这里保留完整清单,方便日后想加包时逐个打开。
+#
+# 说明:ImageBuilder 的 PACKAGES 是覆盖语义(不是追加)。一旦启用本文件,
+#       必须把官方默认包也一起列全,否则会得到连 LuCI 都没有的裸系统。
+#
+# 需要某个软件时,推荐两种更安全的做法:
+#   1) 首次启动后:apk update && apk add <包名>
+#   2) 用 config/imagebuilder/files/ 放 overlay 配置文件(不改包集)
+#
+#======================================================================================
+
+# --- 1. Applications ---
+# CONFIG_PACKAGE_luci-app-ddns is not set
+# CONFIG_PACKAGE_luci-app-dockerman is not set
+# CONFIG_PACKAGE_luci-app-firewall is not set
+# CONFIG_PACKAGE_luci-app-frpc is not set
+# CONFIG_PACKAGE_luci-app-frps is not set
+# CONFIG_PACKAGE_luci-app-package-manager is not set
+# CONFIG_PACKAGE_luci-app-ttyd is not set
+# CONFIG_PACKAGE_luci-app-upnp is not set
+# CONFIG_PACKAGE_luci-app-wol is not set
+# CONFIG_PACKAGE_luci-app-amlogic is not set
+# end of 1. Applications
+
+# --- 2. Themes ---
+# CONFIG_PACKAGE_luci-theme-material is not set
+# CONFIG_PACKAGE_luci-theme-bootstrap is not set
+# CONFIG_PACKAGE_luci-theme-openwrt is not set
+# end of 2. Themes
+
+# --- 3. Translate (按需开启,仅语言包,不算插件) ---
+# CONFIG_PACKAGE_luci-i18n-base-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-firewall-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-package-manager-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-ddns-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-frpc-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-frps-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-upnp-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-wol-zh-cn is not set
+# CONFIG_PACKAGE_luci-i18n-amlogic-zh-cn is not set
+# end of 3. Translate
+
+# --- 4. Other Configuration ---
+CONFIG_BUSYBOX_DEFAULT_FALLOCATE=y
+# end of 4. Other Configuration
